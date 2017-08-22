@@ -9,7 +9,7 @@ features that a gaming community needs like:
 * Highly customize styles   
 and so on...    
 
-#Join the dev team
+# Join the dev team
 If you want to help the CMS to get bigger you can simple fork the repo.  
 Here is also a link to discord(I know Slack is better for stuff like that   
 but I would have to invite everybody single handed) [Invitelink](https://discord.gg/uDnah67)
