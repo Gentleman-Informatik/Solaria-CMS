@@ -7,6 +7,7 @@ use Solaria\Application\Models\Post;
 class PostController extends BaseController {
 
     public function indexAction($id) {
+        var_dump(Post::getLatestPost());
         $post = Post::find($id);
         if($post == null) {
             $this->di->get('SessionFlash')->error('The post that you requested, does not longer exist');

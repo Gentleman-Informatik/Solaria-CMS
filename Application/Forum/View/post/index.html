@@ -1,6 +1,10 @@
 {% extends "@Page/base.html" %}
 
 {% block content %}
+{% set list = [{'name': 'Forum', 'link':'forum'}, { 'name':post.getTopic().getName(), 'link': 'forum/topic/'~post.getTopic().getId() }] %}
+{% set active = post.getTitle() %}
+{% include '@Page/partials/breadcrum.html' with {'list': list, 'active':active} %}
+<br />
 <div class="row forum-post-wrapper">
     <div class="col-md-4">
         <div class="pull-left">
@@ -32,5 +36,5 @@
         </div>
     </div>
 {% endfor %}
-
+{{ include('@Forum/partials/bbcode.html') }}
 {% endblock %}
