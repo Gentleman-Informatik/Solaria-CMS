@@ -1,0 +1,34 @@
+{% extends "@Page/base.html" %}
+
+{% block content %}
+<div class="row forum-post-wrapper">
+    <div class="col-md-4">
+        <div class="pull-left">
+              <img class="img-thumbnail" src="http://lorempixel.com/output/city-q-c-250-250-4.jpg" alt="user-pictrue" width="250px" height="250px">
+              <h5>flaver</h5>
+              <p>Beiträge: 20</p>
+        </div>
+    </div>
+    <div class="col-md-8 forum-text">
+        <h1>{{ post.getTitle() }}</h1>
+        <hr />
+        <p>{{ post.getContent() }}</p>
+    </div>
+</div>
+
+{% for i in post.getResponse() %}
+    <div class="row forum-post-wrapper">
+        <div class="col-md-4">
+            <div class="imgAbt">
+                  <img class="img-thumbnail pull-left" src="http://lorempixel.com/output/city-q-c-250-250-4.jpg" alt="user-pictrue" width="250px" height="250px">
+            </div>
+        </div>
+        <div class="col-md-8 forum-text">
+            <!--<h1>Title</h1>
+            <hr />-->
+            <p>{{ post.getContent() }}</p>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}

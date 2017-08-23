@@ -8,6 +8,15 @@ body {
   color: #5a5a5a;
 }
 
+/* FORUM
+-------------------------------------------------- */
+.forum-text {
+    margin-left: -90px;
+}
+
+.forum-post-wrapper {
+    margin-top: 50px;
+}
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */

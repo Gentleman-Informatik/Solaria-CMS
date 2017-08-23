@@ -8,27 +8,46 @@
             <strong>No post found!</strong> But you can create the first post.
         </div>
     {% else %}
-        {% for i in topic.getPosts() %}
-            <div class="card text-center">
-              <div class="card-header">
-                {{ i.getTitle() }}
-              </div>
-              <div class="card-block">
-                <p class="card-text"> {{ i.getContent() }}</p>
-              </div>
-              <div class="card-footer text-muted">
-                2 days ago
+        <table class="table table-hover table-inverse">
+            <thead>
+                <tr>
+                    <th>Foren</th>
+                    <th>Statisiken</th>
+                    <th>Letzter Beitrag von</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in topic.getPosts() %}
+                    <tr>
+                        <td>{{ Tag.start_link('forum/post/'~i.getId()) }}<i class="fa fa-comment-o" aria-hidden="true"></i> {{ i.Title() }} {{ Tag.end_link() }}</td>
+                        <td>Antworten: 9</td>
+                        <td>flaver<br /> Gestern</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td><i class="fa fa-comment" aria-hidden="true"></i> Test3</td>
+                    <td>Themen: 9 <br /> Beträge 34</td>
+                    <td>Testpost<br /> von flaver <br /> Gestern</td>
+                </tr>
+            </tbody>
+        </table>
+    {% endif %}
+    <div class="card">
+      <div class="card-header">
+        Adminwidget
+      </div>
+      <div class="card-block">
+        <h4 class="card-title">Create a new forum</h4>
+        <p class="card-text">Just enter the name that the forum should have and you ready to go.</p>
+        <form action="{{ url }}/forum/topic/create-topic" method="post">
+            <div class="form-group">
+              <label for="example-text-input" class="col-2 col-form-label">Forenname</label>
+              <div class="col-10">
+                <input class="form-control" type="text" value="" name="topic_name" id="example-text-input">
               </div>
             </div>
-        {% endfor %}
-    {% endif %}
-    <form action="{{ url }}/forum/topic/create-topic" method="post">
-        <div class="form-group">
-          <label for="example-text-input" class="col-2 col-form-label">Forenname</label>
-          <div class="col-10">
-            <input class="form-control" type="text" value="" name="topic_name" id="example-text-input">
-          </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
 {% endblock %}
