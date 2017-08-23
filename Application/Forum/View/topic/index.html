@@ -2,7 +2,26 @@
 
 {% block content %}
     {{ topic.getName() }}
-
+    <br />
+    {% if topic.getPosts().first() == false %}
+        <div class="alert alert-info" role="alert">
+            <strong>No post found!</strong> But you can create the first post.
+        </div>
+    {% else %}
+        {% for i in topic.getPosts() %}
+            <div class="card text-center">
+              <div class="card-header">
+                {{ i.getTitle() }}
+              </div>
+              <div class="card-block">
+                <p class="card-text"> {{ i.getContent() }}</p>
+              </div>
+              <div class="card-footer text-muted">
+                2 days ago
+              </div>
+            </div>
+        {% endfor %}
+    {% endif %}
     <form action="{{ url }}/forum/topic/create-topic" method="post">
         <div class="form-group">
           <label for="example-text-input" class="col-2 col-form-label">Forenname</label>

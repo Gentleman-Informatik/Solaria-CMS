@@ -21,13 +21,13 @@ class User extends BaseModel {
 
     /**
      * One User has Many Posts.
-     * @OneToMany(targetEntity="Solaria\App\Models\Post", mappedBy="user_id")
+     * @OneToMany(targetEntity="Solaria\Application\Models\Post", mappedBy="user_id")
      */
     protected $posts = null;
 
     /**
      * One User has Many UserRole ids.
-     * @OneToMany(targetEntity="Solaria\App\Models\UserRole", mappedBy="user")
+     * @OneToMany(targetEntity="Solaria\Application\Models\UserRole", mappedBy="user")
      */
     protected $userRoles = null;
 
