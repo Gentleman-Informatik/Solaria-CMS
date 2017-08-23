@@ -1,0 +1,19 @@
+<hr />
+<div class="forum-bbcode-form">
+    <form action="{{ url }}/forum/topic/create-topic" method="post">
+        <div class="form-group">
+          <div class="col-12">
+              <textarea name="editor1" id="editor1" rows="10" cols="80">
+                  This is my textarea to be replaced with CKEditor.
+              </textarea>
+              <div class="forum-bbcode-button"><button type="submit" class="btn btn-primary">Submit</button></div>
+          </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace( 'editor1' );
+</script>
