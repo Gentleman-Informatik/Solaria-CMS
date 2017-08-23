@@ -1,6 +1,12 @@
 {% extends "@Page/base.html" %}
 
 {% block content %}
+    <nav class="breadcrumb">
+      <a class="breadcrumb-item" href="#">Home</a>
+      <a class="breadcrumb-item" href="#">Library</a>
+      <a class="breadcrumb-item" href="#">Data</a>
+      <span class="breadcrumb-item active">Bootstrap</span>
+    </nav>
     {{ topic.getName() }}
     <br />
     {% if topic.getPosts().first() == false %}
@@ -18,11 +24,13 @@
             </thead>
             <tbody>
                 {% for i in topic.getPosts() %}
-                    <tr>
-                        <td>{{ Tag.start_link('forum/post/'~i.getId()) }}<i class="fa fa-comment-o" aria-hidden="true"></i> {{ i.Title() }} {{ Tag.end_link() }}</td>
-                        <td>Antworten: 9</td>
-                        <td>flaver<br /> Gestern</td>
-                    </tr>
+                    {% if i.getResponse() == false %}
+                        <tr>
+                            <td>{{ Tag.start_link('forum/post/'~i.getId()) }}<i class="fa fa-comment-o" aria-hidden="true"></i> {{ i.Title() }} {{ Tag.end_link() }}</td>
+                            <td>Antworten: 9</td>
+                            <td>flaver<br /> Gestern</td>
+                        </tr>
+                    {% endif %}
                 {% endfor %}
                 <tr>
                     <td><i class="fa fa-comment" aria-hidden="true"></i> Test3</td>

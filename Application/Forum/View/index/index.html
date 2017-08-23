@@ -13,7 +13,7 @@
             {% for i in topic %}
                 <tr>
                     <td>{{ Tag.start_link('forum/topic/'~i.getId()) }}<i class="fa fa-comment-o" aria-hidden="true"></i> {{ i.getName() }} {{ Tag.end_link() }}</td>
-                    <td>Themen: 9 <br /> Beträge 34</td>
+                    <td>Themen: {{ i.getTopics() }}<br /> Beträge: {{ i.getPosts()|length }}</td>
                     <td>Testpost<br /> von flaver <br /> Gestern</td>
                 </tr>
             {% endfor %}

@@ -37,6 +37,17 @@ class Topic extends BaseModel {
       return self::findBy(array('enabled' => 1));
   }
 
+  //Only use this in view!!!
+  public function getTopics() {
+      $result = 0;
+      foreach ($this->getPosts() as $post) {
+          if($post->getPostId() == null) {
+              $result ++;
+          }
+      }
+      return $result;
+  }
+
   public function getCategoryId() {
     return $this->category_id;
   }
