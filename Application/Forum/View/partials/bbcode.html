@@ -1,6 +1,14 @@
 <hr />
 <div class="forum-bbcode-form">
-    <form action="{{ url }}/forum/topic/create-topic" method="post">
+    <form action="{{ url }}/forum/post/create-post" method="post">
+        {% if showName %}
+            <div class="form-group">
+              <label for="example-text-input" class="col-2 col-form-label">Title</label>
+              <div class="col-10">
+                <input class="form-control" type="text" value="" name="post_title" id="example-text-input">
+              </div>
+            </div>
+        {% endif %}
         <div class="form-group">
           <div class="col-12">
               <textarea name="editor1" id="editor1" rows="10" cols="80">
@@ -9,6 +17,7 @@
               <div class="forum-bbcode-button"><button type="submit" class="btn btn-primary">Submit</button></div>
           </div>
         </div>
+        <input type="hidden" name="id" value="{{ id }}">
     </form>
 </div>
 

@@ -14,7 +14,13 @@
                 <tr>
                     <td>{{ Tag.start_link('forum/topic/'~i.getId()) }}<i class="fa fa-comment-o" aria-hidden="true"></i> {{ i.getName() }} {{ Tag.end_link() }}</td>
                     <td>Themen: {{ i.getTopics() }}<br /> Beträge: {{ i.getPosts()|length }}</td>
-                    <td>Testpost<br /> von flaver <br /> Gestern</td>
+                    {% set latestPost =  i.getLatestPost(i.getId())[0] %}
+
+                    {% if latestPost %}
+                        <td> {{ Tag.link_to(latestPost.getTitle(), 'forum/post/'~latestPost.getId()) }} <br /> von {{ latestPost.getUser().getUsername() }} <br /> Gestern</td>
+                    {% else %}
+                        <td></td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             <tr>

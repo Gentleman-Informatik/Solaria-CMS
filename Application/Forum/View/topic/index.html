@@ -37,22 +37,5 @@
             </tbody>
         </table>
     {% endif %}
-    <div class="card">
-      <div class="card-header">
-        Adminwidget
-      </div>
-      <div class="card-block">
-        <h4 class="card-title">Create a new forum</h4>
-        <p class="card-text">Just enter the name that the forum should have and you ready to go.</p>
-        <form action="{{ url }}/forum/topic/create-topic" method="post">
-            <div class="form-group">
-              <label for="example-text-input" class="col-2 col-form-label">Forenname</label>
-              <div class="col-10">
-                <input class="form-control" type="text" value="" name="topic_name" id="example-text-input">
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-    </div>
+    {% include '@Forum/partials/bbcode.html' with {'showName': true, 'id': topic.getId()} %}
 {% endblock %}

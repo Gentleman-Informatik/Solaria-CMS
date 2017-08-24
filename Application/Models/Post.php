@@ -5,9 +5,6 @@ namespace Solaria\Application\Models;
 use Solaria\Framework\Application\Mvc\BaseModel;
 use Doctrine\Common\Collections\ArrayCollection;
 
-//@AS_TODO: Move this out of the post model!
-use Solaria\Framework\Core\Application;
-
 /**
  * @Entity @Table(name="post")
  **/
@@ -65,13 +62,6 @@ class Post extends BaseModel {
      $this->topic = new ArrayCollection();
      $this->user = new ArrayCollection();
      $this->post = new ArrayCollection();
-   }
-
-   //Only call this in the view!
-   public static function getLatestPost() {
-       $em = Application::$di->get('EntityManager');
-       $query = $em->createQuery('SELECT * FROM Solaria\Application\Models\Post ORDER BY created DESC LIMIT 1');
-       return $query->getResult();
    }
 
    public function getId() {

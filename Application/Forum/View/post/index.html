@@ -16,7 +16,7 @@
     <div class="col-md-8 forum-text">
         <h1>{{ post.getTitle() }}</h1>
         <hr />
-        <p>{{ post.getContent() }}</p>
+        <p>{{ post.getContent()|striptags('<p>,<i>,<b>,<a>,<pre>')|raw }}</p>
     </div>
 </div>
 
