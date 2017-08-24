@@ -25,9 +25,10 @@ class PostController extends BaseController {
             $nameCheck = Post::findBy(array('title' => $name));
             if(count($nameCheck) == 0) {
                 $post = new Post();
+                $user = User::find($this->session->get('user')[0]->getId());//DIRTY HACK NEED TO BE CHANGED!
                 $post->setTitle($name);
                 $post->setContent($this->request->getPost('editor1'));
-                $post->setUser(User::find(1));//@AS_TODO: Get this info from session
+                $post->setUser($user);//@AS_TODO: Get this info from session
                 $post->setTopic(Topic::find($topicId));
                 $newPost = $post->save($post);
                 $this->di->get('SessionFlash')->success('Post <b>'.$name.'</b> successfully created :)');
