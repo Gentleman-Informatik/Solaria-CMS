@@ -3,6 +3,7 @@ namespace Solaria\Application\Forum\Controllers;
 
 use Solaria\Framework\Application\Mvc\BaseController;
 use Solaria\Application\Models\Topic;
+use Solaria\Application\Models\Post;
 
 class TopicController extends BaseController {
 

@@ -28,6 +28,9 @@ class Post extends BaseModel {
     /** @Column(type="string") **/
     public $content;
 
+    /** @Column(type="datetime") **/
+    protected $created;
+
   /**
    * Many Posts have One Topic.
    * @ManyToOne(targetEntity="Solaria\Application\Models\Topic", inversedBy="posts")
@@ -99,6 +102,10 @@ class Post extends BaseModel {
 
    public function getUser() {
      return $this->user;
+   }
+
+   public function getCreated() {
+       return $this->created;
    }
 
    public function setTopic($topic) {

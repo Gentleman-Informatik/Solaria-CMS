@@ -21,14 +21,14 @@ class UserRole extends BaseModel {
 
     /**
      * Many Users have One UserGroupId.
-     * @ManyToOne(targetEntity="Solaria\App\Models\User", inversedBy="userRoles")
+     * @ManyToOne(targetEntity="Solaria\Application\Models\User", inversedBy="userRoles")
      * @JoinColumn(name="user_id", referencedColumnName="id")
      */
      protected $user;
 
      /**
       * Many Users have One UserGroupId.
-      * @ManyToOne(targetEntity="Solaria\App\Models\Role", inversedBy="userRoles")
+      * @ManyToOne(targetEntity="Solaria\Application\Models\Role", inversedBy="userRoles")
       * @JoinColumn(name="role_id", referencedColumnName="id")
       */
      protected $role;

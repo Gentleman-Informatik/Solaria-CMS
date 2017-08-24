@@ -12,9 +12,15 @@
         <tbody>
             {% for i in topic %}
                 <tr>
-                    <td><i class="fa fa-comment-o" aria-hidden="true"></i> {{ i.getName() }}</td>
-                    <td>Themen: 9 <br /> Beträge 34</td>
-                    <td>Testpost<br /> von flaver <br /> Gestern</td>
+                    <td>{{ Tag.start_link('forum/topic/'~i.getId()) }}<i class="fa fa-comment-o" aria-hidden="true"></i> {{ i.getName() }} {{ Tag.end_link() }}</td>
+                    <td>Themen: {{ i.getTopics() }}<br /> Beträge: {{ i.getPosts()|length }}</td>
+                    {% set latestPost =  i.getLatestPost(i.getId())[0] %}
+
+                    {% if latestPost %}
+                        <td> {{ Tag.link_to(latestPost.getTitle(), 'forum/post/'~latestPost.getId()) }} <br /> von {{ latestPost.getUser().getUsername() }} <br /> Gestern</td>
+                    {% else %}
+                        <td></td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             <tr>
@@ -24,14 +30,22 @@
             </tr>
         </tbody>
     </table>
-
-    <form action="{{ url }}/forum/topic/create-topic" method="post">
-        <div class="form-group">
-          <label for="example-text-input" class="col-2 col-form-label">Forenname</label>
-          <div class="col-10">
-            <input class="form-control" type="text" value="" name="topic_name" id="example-text-input">
-          </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <div class="card">
+      <div class="card-header">
+        Adminwidget
+      </div>
+      <div class="card-block">
+        <h4 class="card-title">Create a new forum</h4>
+        <p class="card-text">Just enter the name that the forum should have and you ready to go.</p>
+        <form action="{{ url }}/forum/topic/create-topic" method="post">
+            <div class="form-group">
+              <label for="example-text-input" class="col-2 col-form-label">Forenname</label>
+              <div class="col-10">
+                <input class="form-control" type="text" value="" name="topic_name" id="example-text-input">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
 {% endblock %}

@@ -8,6 +8,29 @@ body {
   color: #5a5a5a;
 }
 
+/* FORUM
+-------------------------------------------------- */
+.forum-text {
+    margin-left: -90px;
+}
+
+.forum-post-wrapper {
+    margin-top: 50px;
+}
+
+.forum-bbcode-button {
+    margin-top: 10px;
+}
+
+.forum-bbcode-form {
+    margin-top: 10px;
+}
+
+/* BREADCRUM
+-------------------------------------------------- */
+.sol-breadcrum {
+    background-color: #292b2c !important;
+}
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */

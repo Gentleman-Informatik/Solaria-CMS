@@ -1,0 +1,41 @@
+{% extends "@Page/base.html" %}
+
+{% block content %}
+{% set list = [{'name': 'Forum', 'link':'forum'}, { 'name':post.getTopic().getName(), 'link': 'forum/topic/'~post.getTopic().getId() }] %}
+{% set active = post.getTitle() %}
+{% set allowedHTML = '<p>,<i>,<b>,<a>,<ol>,<ul>,<li>,<pre>' %}
+{% include '@Page/partials/breadcrum.html' with {'list': list, 'active':active} %}
+<br />
+<div class="row forum-post-wrapper">
+    <div class="col-md-4">
+        <div class="pull-left">
+              <img class="img-thumbnail" src="http://lorempixel.com/output/city-q-c-250-250-4.jpg" alt="user-pictrue" width="250px" height="250px">
+              <h5>flaver</h5>
+              <p>Beiträge: 20</p>
+        </div>
+    </div>
+    <div class="col-md-8 forum-text">
+        <h1>{{ post.getTitle() }}</h1>
+        <hr />
+        <p>{{ post.getContent()|striptags(allowedHTML)|raw }}</p>
+    </div>
+</div>
+
+{% for i in post.getPost() %}
+    <div class="row forum-post-wrapper">
+        <div class="col-md-4">
+            <div class="pull-left">
+                  <img class="img-thumbnail" src="http://lorempixel.com/output/city-q-c-250-250-4.jpg" alt="user-pictrue" width="250px" height="250px">
+                  <h5>flaver</h5>
+                  <p>Beiträge: 20</p>
+            </div>
+        </div>
+        <div class="col-md-8 forum-text">
+            <!--<h1>Title</h1>
+            <hr />-->
+            <p>{{ i.getContent()|striptags(allowedHTML)|raw }}</p>
+        </div>
+    </div>
+{% endfor %}
+{% include '@Forum/partials/bbcode.html' with {'showName': false, 'id': post.getId(), 'action': 'answer-post'} %}
+{% endblock %}

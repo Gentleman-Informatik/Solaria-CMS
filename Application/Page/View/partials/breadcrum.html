@@ -1,0 +1,6 @@
+<nav class="breadcrumb sol-breadcrum">
+    {% for i in list %}
+        {{ Tag.link_to(i['name'], i['link'], 'breadcrumb-item') }}
+    {% endfor %}
+    <span class="breadcrumb-item active">{{ active }}</span>
+</nav>
