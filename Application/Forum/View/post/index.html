@@ -3,6 +3,7 @@
 {% block content %}
 {% set list = [{'name': 'Forum', 'link':'forum'}, { 'name':post.getTopic().getName(), 'link': 'forum/topic/'~post.getTopic().getId() }] %}
 {% set active = post.getTitle() %}
+{% set allowedHTML = '<p>,<i>,<b>,<a>,<ol>,<ul>,<li>,<pre>' %}
 {% include '@Page/partials/breadcrum.html' with {'list': list, 'active':active} %}
 <br />
 <div class="row forum-post-wrapper">
@@ -16,7 +17,7 @@
     <div class="col-md-8 forum-text">
         <h1>{{ post.getTitle() }}</h1>
         <hr />
-        <p>{{ post.getContent()|striptags('<p>,<i>,<b>,<a>,<pre>')|raw }}</p>
+        <p>{{ post.getContent()|striptags(allowedHTML)|raw }}</p>
     </div>
 </div>
 
@@ -32,9 +33,9 @@
         <div class="col-md-8 forum-text">
             <!--<h1>Title</h1>
             <hr />-->
-            <p>{{ post.getContent() }}</p>
+            <p>{{ i.getContent()|striptags(allowedHTML)|raw }}</p>
         </div>
     </div>
 {% endfor %}
-{{ include('@Forum/partials/bbcode.html') }}
+{% include '@Forum/partials/bbcode.html' with {'showName': false, 'id': post.getId(), 'action': 'answer-post'} %}
 {% endblock %}

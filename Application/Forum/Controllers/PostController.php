@@ -41,4 +41,25 @@ class PostController extends BaseController {
         }
     }
 
+    public function answerPostAction() {
+        if($this->request->isPost()) {
+            $postId = $this->request->getPost('id');
+            $oldPost = Post::find($postId);
+            if($oldPost != null) {
+                $post = new Post();
+                $post->setTitle($oldPost->getTitle());
+                $post->setContent($this->request->getPost('editor1'));
+                $post->setUser(User::find(1));//@AS_TODO: Get this info from session
+                $post->setTopic($oldPost->getTopic());
+                $post->setResponse($oldPost);
+                $post->save($post);
+                $this->response->redirect('forum/post/'.$oldPost->getId());
+            } else {
+                $this->response->redirect('forum');
+            }
+        } else {
+            $this->response->redirect('forum');
+        }
+    }
+
 }
