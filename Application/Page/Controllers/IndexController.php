@@ -9,6 +9,7 @@ class IndexController extends BaseController {
     public function indexAction() {
         //var_dump($this->rbac->isGranted('Guest', 'sol.dp.view.page'));die;
         $this->view->set('carousel', true);
+        $this->view->set('user', $this->session->get('user'));
     }
 
 }

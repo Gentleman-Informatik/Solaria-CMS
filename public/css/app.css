@@ -32,6 +32,15 @@ body {
     background-color: #292b2c !important;
 }
 
+/* NAVBAR
+-------------------------------------------------- */
+.navbar-text > a {
+    color: white;
+}
+
+.navbar-text > a:hover {
+    text-decoration: none;
+}
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 

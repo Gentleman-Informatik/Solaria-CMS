@@ -3,7 +3,7 @@ CMS-System build on the Solaria Core
 The CMS is build for smal gaming communitys who don't have normaly a programmer.  
 The goal of the CMS is it to provide a simple installation and bring some  
 features that a gaming community needs like:   
-* TS/Discord intergation  
+* TS/Discord and Steam intergation  
 * Simple and easy rule system  
 * Lightweight forum
 * Highly customize styles   

@@ -10,7 +10,8 @@ debug = true
 auto_reload = true
 
 [login]
-api_key = 
+api_key =
+url =
 
 [acl]
 userTable                       = "Solaria\App\Models\User"

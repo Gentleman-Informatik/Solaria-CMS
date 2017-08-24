@@ -3,7 +3,7 @@
       "psr-4": {
         "Solaria\\Framework\\": "Framework",
         "Solaria\\Application\\": "Application",
-        "Solaria\\Plugins\\": "Plugins"
+        "Solaria\\Plugins\\": "Plugin"
       }
     },
     "repositories": [

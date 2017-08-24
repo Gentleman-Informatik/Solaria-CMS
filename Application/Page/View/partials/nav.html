@@ -15,9 +15,17 @@
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
+    <span class="navbar-text">
+    {% if user == false %}
+        {{ Tag.start_link('acp/user/sing-up') }} Login with Steam <i class="fa fa-steam" aria-hidden="true"></i> {{ Tag.end_link() }}
+    {% else %}
+        {{ Tag.start_link('acp/user/sing-out') }} Logout <i class="fa fa-sign-out" aria-hidden="true"></i> {{ Tag.end_link() }}
+    {% endif %}
+   </span>
+   <!--
     <form class="form-inline mt-2 mt-md-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+  </form>-->
   </div>
 </nav>
