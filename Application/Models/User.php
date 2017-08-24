@@ -14,10 +14,17 @@ class User extends BaseModel {
     protected $id;
 
     /** @Column(type="string") **/
+    protected $steam_id;
+
+    /** @Column(type="string") **/
+    protected $steam_avatar;
+
+    /** @Column(type="string") **/
     protected $username;
 
     /** @Column(type="string") **/
     protected $password;
+
 
     /**
      * One User has Many Posts.
@@ -42,6 +49,18 @@ class User extends BaseModel {
 
     public function setPassword($password) {
       $this->password = $password;
+    }
+
+    public function setSteamId($steam_id) {
+        $this->steam_id = $steam_id;
+    }
+
+    public function setSteamAvatar($steam_avatar) {
+        $this->steam_avatar = $steam_avatar;
+    }
+
+    public function getSteamAvatar() {
+        return $this->steam_avatar;
     }
 
     public function getPosts() {

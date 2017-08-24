@@ -10,5 +10,6 @@ class IndexController extends BaseController {
         $topic = Topic::findActiveTopic();
         $this->view->set('topic', $topic);
     }
+    
 
 }

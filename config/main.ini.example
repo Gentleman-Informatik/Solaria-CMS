@@ -9,6 +9,9 @@ cacheDir = cache/view
 debug = true
 auto_reload = true
 
+[login]
+api_key = 
+
 [acl]
 userTable                       = "Solaria\App\Models\User"
 userRoleTable                   = "Solaria\App\Models\UserRole"
