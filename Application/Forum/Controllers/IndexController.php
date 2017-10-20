@@ -1,7 +1,7 @@
 <?php
 namespace Solaria\Application\Forum\Controllers;
 
-use Solaria\Framework\Application\Mvc\BaseController;
+use Solaria\Application\Forum\Controllers\BaseController;
 use Solaria\Application\Models\Topic;
 
 class IndexController extends BaseController {
@@ -10,6 +10,6 @@ class IndexController extends BaseController {
         $topic = Topic::findActiveTopic();
         $this->view->set('topic', $topic);
     }
-    
+
 
 }
