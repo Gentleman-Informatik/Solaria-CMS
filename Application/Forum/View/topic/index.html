@@ -37,5 +37,7 @@
             </tbody>
         </table>
     {% endif %}
-    {% include '@Forum/partials/bbcode.html' with {'showName': true, 'id': topic.getId(), 'action': 'create-post'} %}
+    {% if user %}
+    	{% include '@Forum/partials/bbcode.html' with {'showName': true, 'id': topic.getId(), 'action': 'create-post'} %}
+    {% endif %}
 {% endblock %}

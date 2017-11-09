@@ -1,7 +1,7 @@
 <?php
 namespace Solaria\Application\Forum\Controllers;
 
-use Solaria\Application\Forum\BaseController;
+use Solaria\Application\Forum\Controllers\BaseController;
 use Solaria\Application\Models\Topic;
 use Solaria\Application\Models\Post;
 
