@@ -5,3 +5,5 @@ cache/view/*
 node_modules/*
 node_modules/
 log/*.log
+/.buildpath
+/.project

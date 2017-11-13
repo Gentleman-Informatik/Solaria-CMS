@@ -1,7 +1,7 @@
 <?php
 namespace Solaria\Application\Forum\Controllers;
 
-use Solaria\Application\Forum\BaseController;
+use Solaria\Application\Forum\Controllers\BaseController;
 use Solaria\Application\Models\Post;
 use Solaria\Application\Models\User;
 use Solaria\Application\Models\Topic;
@@ -22,7 +22,7 @@ class PostController extends BaseController {
         if($this->request->isPost()) {
             $name = $this->request->getPost('post_title');
             $topicId = $this->request->getPost('id');
-            $nameCheck = Post::findBy(array('title' => $name));
+            $nameCheck = Post::findBy(array('title' => $name, 'topic_id' => $topicId));
             if(count($nameCheck) == 0) {
                 $post = new Post();
                 $user = User::find($this->session->get('user')[0]->getId());//DIRTY HACK NEED TO BE CHANGED!
