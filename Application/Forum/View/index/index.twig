@@ -1,0 +1,57 @@
+{% extends "@Page/base.twig" %}
+
+{% block content %}
+{% for i in topic %}
+  <div class="container"><!--Start Container -->
+      <div class="row"><!--Start Row -->
+        <div class="col-lg-12 col-md-12">
+          <div class="post">
+            <div class="wrap-ut pull-left">
+              <div class="posttext pull-left">
+                <h2>{{ Tag.start_link('forum/topic/'~i.getId()) }}<i class="fa fa-comment-o" aria-hidden="true"></i> {{ i.getName() }} {{ Tag.end_link() }}</h2>
+                <p>This is just a little test!</p>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="postinfo pull-left">
+              <!--<div class="comments">
+                <div class="commentbg">
+                  12
+                  <div class="mark"></div>
+                </div>-->
+                <div class="lastPost">
+                    Themen: {{ i.getTopics() }}
+                    <br /> Beträge: {{ i.getPosts()|length }}<br />
+                    {% if latestPost %}
+                        {{ Tag.link_to(latestPost.getTitle(), 'forum/post/'~latestPost.getId()) }} <br /> von {{ latestPost.getUser().getUsername() }} <br /> Gestern
+                    {% endif %}
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div><!--End Row -->
+    </div><!--End Container -->
+{% endfor %}
+    {% if user %}
+    <div class="card">
+      <div class="card-header">
+        Adminwidget
+      </div>
+      <div class="card-block">
+        <h4 class="card-title">Create a new forum</h4>
+        <p class="card-text">Just enter the name that the forum should have and you ready to go.</p>
+        <form action="{{ url }}/forum/topic/create-topic" method="post">
+            <div class="form-group">
+              <label for="example-text-input" class="col-2 col-form-label">Forenname</label>
+              <div class="col-10">
+                <input class="form-control" type="text" value="" name="topic_name" id="example-text-input">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "@Page/base.twig" %}
+
+{% block content %}
+    {% set list = [{'name': 'Forum', 'link':'forum'}] %}
+    {% set active = topic.getName() %}
+    {% include '@Page/partials/breadcrum.twig' with {'list': list, 'active':active} %}
+    {{ topic.getName() }}
+    <br />
+    {% if topic.getPosts().first() == false %}
+        <div class="alert alert-info" role="alert">
+            <strong>No post found!</strong> But you can create the first post.
+        </div>
+    {% else %}
+    {% for i in topic.getPosts() %}
+      {% if i.getResponse() == false %}
+        <div class="container"><!--Start Container -->
+            <div class="row"><!--Start Row -->
+              <div class="col-lg-12 col-md-12">
+                <div class="post">
+                  <div class="wrap-ut pull-left">
+                    <div class="userinfo pull-left">
+                        <div class="avatar">
+                          <img src="{{ i.getUser().getSteamAvatar() }}" alt="userimg">
+                          <div class="status green"></div>
+                        </div>
+                        <!--<div class="icons">
+                          <img src="http://forum.azyrusthemes.com/images/icon1.jpg" alt="">
+                          <img src="http://forum.azyrusthemes.com/images/icon4.jpg" alt="">
+                        </div>-->
+                    </div>
+                    <div class="posttext pull-left">
+                      <h2>{{ Tag.link_to(i.Title(), 'forum/post/'~i.getId()) }}</h2>
+                      <p>This is just a little test!</p>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="postinfo pull-left">
+                    <div class="comments">
+                      <div class="commentbg">
+                        {{ i.getPost()|length }}
+                        <div class="mark"></div>
+                      </div>
+                    </div>
+                    <div class="views">
+                      <li class="fa fa-eye"></li> 29
+                    </div>
+                    <div class="time">
+                      <li class="fa fa-clocl-o"></li>
+                      2 days
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div><!--End Row -->
+          </div><!--End Container -->
+          {% endif %}
+      {% endfor %}
+    {% endif %}
+    {% if user %}
+    	{% include '@Forum/partials/bbcode.twig' with {'showName': true, 'id': topic.getId(), 'action': 'create-post'} %}
+    {% endif %}
+{% endblock %}

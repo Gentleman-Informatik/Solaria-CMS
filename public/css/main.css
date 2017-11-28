@@ -1,0 +1,243 @@
+.post {
+  background-color: #ffffff;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px #c9cccd;
+  margin-bottom: 20px; }
+  .post .wrap-ut {
+    width: 85%; }
+  .post .userinfo {
+    width: 15%;
+    padding: 20px 0 15px 15px; }
+  .post .avatar {
+    width: 37px;
+    margin-left: 5px; }
+  .post .icons {
+    width: 48px;
+    border-top: solid 1px #f1f1f1;
+    margin-top: 12px;
+    padding-top: 7px; }
+  .post .posttext {
+    width: 85%;
+    padding-left: 20px;
+    padding-right: 35px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    color: #989c9e;
+    font-size: 14px;
+    font-family: 'Open Sans Light', sans-serif;
+    line-height: 25px; }
+  .post .postinfo {
+    width: 15%;
+    border-left: solid 1px #f1f1f1; }
+  .post .comments {
+    border-bottom: solid 1px #f1f1f1;
+    padding: 18px 0 25px 0;
+    text-align: center; }
+    .post .comments .commentbg {
+      background-color: #bdc3c7;
+      border-radius: 2px;
+      display: inline-block;
+      padding: 12px 12px;
+      color: #fff;
+      font-size: 14px;
+      font-family: 'Open Sans Bold', sans-serif;
+      position: relative; }
+      .post .comments .commentbg .mark {
+        width: 11px;
+        height: 11px;
+        background-color: #bdc3c7;
+        position: absolute;
+        bottom: 0;
+        left: 43%;
+        margin-bottom: -5px;
+        transform: rotate(45deg);
+        -ms-transfrom: rotate(45deg);
+        -webkit-transfrom: rotate(45deg); }
+  .post .lastPost {
+    border-bottom: solid 1px #f1f1f1;
+    padding: 18px 0 25px 0;
+    text-align: center; }
+    .post .lastPost .lastPostBg {
+      background-color: #bdc3c7;
+      border-radius: 2px;
+      display: inline-block;
+      padding: 12px 12px;
+      color: #fff;
+      font-size: 14px;
+      font-family: 'Open Sans Bold', sans-serif;
+      position: relative; }
+  .post .views {
+    border-bottom: solid 1px #f1f1f1;
+    color: #9da6aa;
+    font-size: 12px;
+    font-family: 'Open Sans Regular', sans-serif;
+    text-align: center;
+    line-height: 29px; }
+  .post .time {
+    color: #9da6aa;
+    font-size: 12px;
+    font-family: 'Open Sans Regular', sans-serif;
+    text-align: center;
+    line-height: 29px; }
+  .post h2 {
+    color: #363838;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+
+.topic .userinfo {
+  width: 12%;
+  padding: 20px 0 15px 0; }
+
+.topic .posttext {
+  width: 88%; }
+
+.avatar {
+  position: relative; }
+  .avatar img {
+    border-radius: 50%; }
+  .avatar .green {
+    background-color: #80d3ab; }
+  .avatar .red {
+    background-color: #f27777; }
+  .avatar .status {
+    position: absolute;
+    right: -14px;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    border-radius: 50%;
+    border: solid 2px #fff; }
+
+.postinfobot {
+  border-top: solid 1px #f1f1f1;
+  line-height: 50px;
+  padding: 0 30px 0 94px; }
+  .postinfobot .likeblock {
+    width: 120px; }
+  .postinfobot .reply {
+    width: 30px; }
+    .postinfobot .reply a {
+      font-size: 18px;
+      color: #bdc3c7; }
+  .postinfobot .posted {
+    width: 300px;
+    margin-left: 18px;
+    font-size: 12px;
+    color: #bdc3c7;
+    font-family: 'Open Sans Regular', sans-serif; }
+    .postinfobot .posted li {
+      font-size: 18px;
+      color: #bdc3c7;
+      padding-right: 8px; }
+  .postinfobot .next {
+    width: 90px;
+    text-align: right; }
+    .postinfobot .next a {
+      font-size: 18px;
+      color: #bdc3c7; }
+      .postinfobot .next a li {
+        padding-right: 18px; }
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+body {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+  background-color: #ecf0f1; }
+
+/* BREADCRUM
+-------------------------------------------------- */
+.sol-breadcrum {
+  background-color: #292b2c !important; }
+
+/* NAVBAR
+-------------------------------------------------- */
+.navbar-text > a {
+  color: white; }
+
+.navbar-text > a:hover {
+  text-decoration: none; }
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+/* Carousel base class */
+.carousel {
+  margin-bottom: 4rem; }
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+  bottom: 3rem; }
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 32rem;
+  background-color: #777; }
+
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem; }
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center; }
+
+.marketing h2 {
+  font-weight: normal; }
+
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem; }
+
+/* Featurettes
+------------------------- */
+.featurette-divider {
+  margin: 5rem 0;
+  /* Space out the Bootstrap <hr> more */ }
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.05rem; }
+
+.up {
+  color: #1abc9c;
+  font-size: 12px; }
+  .up li {
+    font-size: 20px;
+    padding-right: 10px; }
+
+.down {
+  color: #db7a7a;
+  font-size: 12px;
+  margin-left: 20px; }
+  .down li {
+    font-size: 20px;
+    padding-right: 10px; }
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (min-width: 40em) {
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4; }
+  .featurette-heading {
+    font-size: 50px; } }
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem; } }

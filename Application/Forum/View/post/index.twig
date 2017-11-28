@@ -1,0 +1,109 @@
+{% extends "@Page/base.twig" %}
+
+{% block content %}
+{% set list = [{'name': 'Forum', 'link':'forum'}, { 'name':post.getTopic().getName(), 'link': 'forum/topic/'~post.getTopic().getId() }] %}
+{% set active = post.getTitle() %}
+{% set allowedHTML = '<p>,<i>,<b>,<a>,<ol>,<ul>,<li>,<pre>' %}
+{% include '@Page/partials/breadcrum.twig' with {'list': list, 'active':active} %}
+<br />
+<script type="text/javascript">
+$( document ).ready(function() {
+  $( "body" ).addClass( "topic" );
+});
+</script>
+<div class="container"><!--Start Container -->
+    <div class="row"><!--Start Row -->
+      <div class="col-lg-12 col-md-12">
+        <div class="post">
+          <div class="topwrap">
+            <div class="wrap-ut pull-left">
+              <div class="userinfo pull-left">
+                  <div class="avatar">
+                    <img src="{{ post.getUser().getSteamAvatar() }}" alt="userimg">
+                    <div class="status green"></div>
+                  </div>
+                  <!--<div class="icons">
+                    <img src="http://forum.azyrusthemes.com/images/icon1.jpg" alt="">
+                    <img src="http://forum.azyrusthemes.com/images/icon4.jpg" alt="">
+                  </div>-->
+              </div>
+              <div class="posttext pull-left">
+                <h2>{{ post.getTitle() }}</h2>
+                <p>{{ post.getContent()|striptags(allowedHTML)|raw }}</p>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="postinfobot">
+            <div class="likeblock pull-left">
+              <a href="#" class="up"><li class="fa fa-thumbs-o-up"></li>25</a>
+              <a href="#" class="down"><li class="fa fa-thumbs-o-down"></li>3</a>
+            </div>
+            <div class="reply pull-left">
+              <a href="#"><i class="fa fa-reply"></i></a>
+            </div>
+            <div class="posted pull-left">
+              <i class="fa fa-clock-o"></i> Posted on : 20 Nov @ 9:30am
+            </div>
+            <div class="next pull-left">
+              <a href="#"><li class="fa fa-share"></li></a>
+              <a href="#"><li class="fa fa-flag"></li></a>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div><!--End Row -->
+</div><!--End Container -->
+
+{% for i in post.getPost() %}
+  <div class="container"><!--Start Container -->
+      <div class="row"><!--Start Row -->
+        <div class="col-lg-12 col-md-12">
+          <div class="post">
+            <div class="topwrap">
+              <div class="wrap-ut pull-left">
+                <div class="userinfo pull-left">
+                    <div class="avatar">
+                      <img src="{{ i.getUser().getSteamAvatar() }}" alt="userimg">
+                      <div class="status green"></div>
+                    </div>
+                    <!--<div class="icons">
+                      <img src="http://forum.azyrusthemes.com/images/icon1.jpg" alt="">
+                      <img src="http://forum.azyrusthemes.com/images/icon4.jpg" alt="">
+                    </div>-->
+                </div>
+                <div class="posttext pull-left">
+                  <p>{{ i.getContent()|striptags(allowedHTML)|raw }}</p>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="postinfobot">
+              <div class="likeblock pull-left">
+                <a href="#" class="up"><li class="fa fa-thumbs-o-up"></li>25</a>
+                <a href="#" class="down"><li class="fa fa-thumbs-o-down"></li>3</a>
+              </div>
+              <div class="reply pull-left">
+                <a href="#"><i class="fa fa-reply"></i></a>
+              </div>
+              <div class="posted pull-left">
+                <i class="fa fa-clock-o"></i> Posted on : 20 Nov @ 9:30am
+              </div>
+              <div class="next pull-left">
+                <a href="#"><li class="fa fa-share"></li></a>
+                <a href="#"><li class="fa fa-flag"></li></a>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </div><!--End Row -->
+  </div><!--End Container -->
+{% endfor %}
+
+{% if user %}
+	{% include '@Forum/partials/bbcode.twig' with {'showName': false, 'id': post.getId(), 'action': 'answer-post'} %}
+{% endif %}
+
+{% endblock %}

@@ -8,12 +8,31 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Solaria-CMS Maglus 1.0.0</title>
+    <title>Dashboard Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    {{ Tag.include_css('css/app.css') }}
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+    {{ Tag.include_css('css/acp.css') }}
     {{ Tag.include_css('css/font-awesome/css/font-awesome.min.css') }}
+  </head>
+
+  <body>
+     {{ include('@Acp/partials/header.html') }}
+
+    <div class="container-fluid">
+      <div class="row">
+
+        {{ include('@Acp/partials/nav.twig') }}
+
+        <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+          <h1>Dashboard</h1>
+           {% block content %}{% endblock %}
+        </main>
+      </div>
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -21,31 +40,5 @@
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script src="//cdn.ckeditor.com/4.7.2/basic/ckeditor.js"></script>
-  </head>
-  <body>
-      {{ include('@Page/partials/nav.html') }}
-      {% if carousel %}
-        {{ include('@Page/partials/carousel.html') }}
-      {% else %}
-        <style media="screen">
-            .marketing {
-                margin-top: 20px;
-            }
-        </style>
-      {% endif %}
-      <div class="container marketing">
-          {{ flashSession.render() }}
-          {% block content %}{% endblock %}
-      </div>
-
-    </div><!-- /.container -->
-    <div class="fixed-bottom">
-        <!-- FOOTER -->
-        <footer>
-          <p class="float-right"><a href="#">Back to top</a></p>
-          <p>&copy; 2017 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-        </footer>
-    </div>
   </body>
 </html>
