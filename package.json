@@ -1,0 +1,26 @@
+{
+  "name": "solaria-cms",
+  "version": "1.0.0",
+  "description": "CMS-System build on the Solaria Core    The CMS is build for smal gaming communitys who don't have normaly a programmer.   The goal of the CMS is it to provide a simple installation and bring some   features that a gaming community needs like:    * TS/Discord and Steam intergation   * Simple and easy rule system   * Lightweight forum * Highly customize styles    and so on...",
+  "main": "index.js",
+  "dependencies": {
+    "webpack": "^3.8.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flaver12/Solaria-CMS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flaver12/Solaria-CMS/issues"
+  },
+  "homepage": "https://github.com/flaver12/Solaria-CMS#readme"
+}

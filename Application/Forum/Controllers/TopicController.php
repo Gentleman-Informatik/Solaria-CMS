@@ -24,6 +24,7 @@ class TopicController extends BaseController {
             if(count($nameCheck) == 0) {
                 $topic = new Topic();
                 $topic->setName($name);
+                $topic->setEnabled(1);
                 $newTopic = $topic->save($topic);
                 $this->di->get('SessionFlash')->success('Topic <b>'.$name.'</b> successfully created :)');
                 $this->response->redirect('forum/topic/'.$newTopic->getId());

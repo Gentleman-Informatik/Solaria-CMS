@@ -3,6 +3,7 @@
 namespace Solaria\Application\Page\Controllers;
 
 use Solaria\Framework\Application\Mvc\BaseController;
+use Solaria\Application\Page\Forms\TestForm;
 
 class IndexController extends BaseController {
 

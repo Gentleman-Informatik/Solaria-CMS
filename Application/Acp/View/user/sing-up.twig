@@ -1,4 +1,4 @@
-{% extends "@Page/base.html" %}
+{% extends "@Page/base.twig" %}
 
 {% block content %}
     <div class="card">
@@ -23,19 +23,7 @@
     <div class="card">
         <div class="card-block">
             <h4 class="card-title">Other Login</h4>
-            <h6 class="card-subtitle mb-2 text-muted">Why steam login?</h6>
-            <p class="card-text">
-                This side uses steam to verify <strong>you</strong> as user. <br />
-                We will use the following data from your steam.
-                <ul>
-                    <li>Username</li>
-                    <li>Avatar</li>
-                </ul>
-                If you still have question, please contact the side owner.
-            </p>
-            <form action="{{ url }}/acp/user/sing-up" method="post">
-                <input type="image" src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_01.png">
-            </form>
+            {{ register_form.render() }}
         </div>
     </div>
 {% endblock %}

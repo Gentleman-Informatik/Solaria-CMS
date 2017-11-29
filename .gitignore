@@ -7,3 +7,4 @@ node_modules/
 log/*.log
 /.buildpath
 /.project
+/npm-debug.log

@@ -1,3 +1,5 @@
+@import "forum/main.scss";
+
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
@@ -6,24 +8,7 @@ body {
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: #5a5a5a;
-}
-
-/* FORUM
--------------------------------------------------- */
-.forum-text {
-    margin-left: -90px;
-}
-
-.forum-post-wrapper {
-    margin-top: 50px;
-}
-
-.forum-bbcode-button {
-    margin-top: 10px;
-}
-
-.forum-bbcode-form {
-    margin-top: 10px;
+  background-color: #ecf0f1;
 }
 
 /* BREADCRUM
@@ -99,6 +84,25 @@ body {
   letter-spacing: -.05rem;
 }
 
+//General  stuff
+.up {
+  color: #1abc9c;
+  font-size: 12px;
+  li {
+    font-size: 20px;
+    padding-right: 10px;
+  }
+}
+
+.down {
+  color: #db7a7a;
+  font-size: 12px;
+  margin-left: 20px;
+  li {
+    font-size: 20px;
+    padding-right: 10px;
+  }
+}
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */

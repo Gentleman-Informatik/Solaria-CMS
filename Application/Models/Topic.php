@@ -103,6 +103,14 @@ class Topic extends BaseModel {
       $this->name = $name;
   }
 
+  public function setEnabled($enabled) {
+    $this->enabled = $enabled;
+  }
+
+  public function setCreated($created) {
+    $this->created = $created;
+  }
+
   public function setCategory($category) {
       $this->category = $category;
   }
