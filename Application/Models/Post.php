@@ -4,6 +4,7 @@ namespace Solaria\Application\Models;
 
 use Solaria\Framework\Application\Mvc\BaseModel;
 use Doctrine\Common\Collections\ArrayCollection;
+use DateTime;
 
 /**
  * @Entity @Table(name="post")
@@ -27,6 +28,9 @@ class Post extends BaseModel {
 
     /** @Column(type="string") **/
     public $content;
+
+    /** @Column(type="integer") **/
+    protected $views;
 
     /** @Column(type="datetime") **/
     protected $created;
@@ -64,6 +68,35 @@ class Post extends BaseModel {
      $this->post = new ArrayCollection();
    }
 
+   public function getTime($full = false) {
+    $now = new DateTime;
+    $ago = $this->getCreated();
+    $diff = $now->diff($ago);
+
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+
+    $string = array(
+        'y' => 'year',
+        'm' => 'month',
+        'w' => 'week',
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'minute',
+        's' => 'second',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k) {
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+        } else {
+            unset($string[$k]);
+        }
+    }
+
+    if (!$full) $string = array_slice($string, 0, 1);
+    return $string ? implode(', ', $string) . ' ago' : 'just now';
+   }
+
    public function getId() {
      return $this->id;
    }
@@ -94,6 +127,10 @@ class Post extends BaseModel {
 
    public function getContent() {
      return $this->content;
+   }
+
+   public function getViews() {
+     return $this->views;
    }
 
    public function getTopic() {
@@ -130,6 +167,10 @@ class Post extends BaseModel {
 
    public function setContent($content) {
      $this->content = $content;
+   }
+
+   public function setViews($views) {
+     $this->views = $views;
    }
 
    public function setResponse($response) {

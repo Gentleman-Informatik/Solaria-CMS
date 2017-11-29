@@ -19,7 +19,11 @@ $( document ).ready(function() {
             <div class="wrap-ut pull-left">
               <div class="userinfo pull-left">
                   <div class="avatar">
-                    <img src="{{ post.getUser().getSteamAvatar() }}" alt="userimg">
+                    {% if  i.getUser().getSteamAvatar() %}
+                      <img src="{{ i.getUser().getSteamAvatar() }}" alt="userimg">
+                    {% else %}
+                      {{ Tag.include_img('imgs/default_user.png') }}
+                    {% endif %}
                     <div class="status green"></div>
                   </div>
                   <!--<div class="icons">
@@ -65,7 +69,11 @@ $( document ).ready(function() {
               <div class="wrap-ut pull-left">
                 <div class="userinfo pull-left">
                     <div class="avatar">
-                      <img src="{{ i.getUser().getSteamAvatar() }}" alt="userimg">
+                      {% if  i.getUser().getSteamAvatar() %}
+                        <img src="{{ i.getUser().getSteamAvatar() }}" alt="userimg">
+                      {% else %}
+                        {{ Tag.include_img('imgs/default_user.png') }}
+                      {% endif %}
                       <div class="status green"></div>
                     </div>
                     <!--<div class="icons">

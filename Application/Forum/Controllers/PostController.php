@@ -14,6 +14,8 @@ class PostController extends BaseController {
             $this->di->get('SessionFlash')->error('The post that you requested, does not longer exist');
             $this->response->redirect('forum');
         } else {
+            $post->setViews(($post->getViews() + 1));
+            $post->update($post);
             $this->view->set('post', $post);
         }
     }
@@ -25,11 +27,11 @@ class PostController extends BaseController {
             $nameCheck = Post::findBy(array('title' => $name, 'topic_id' => $topicId));
             if(count($nameCheck) == 0) {
                 $post = new Post();
-                $user = User::find($this->session->get('user')[0]->getId());//DIRTY HACK NEED TO BE CHANGED!
                 $post->setTitle($name);
                 $post->setContent($this->request->getPost('editor1'));
-                $post->setUser($user);//@AS_TODO: Get this info from session
+                $post->setUser(User::find($this->session->get('user')->getId()));
                 $post->setTopic(Topic::find($topicId));
+                $post->setViews(0);
                 $newPost = $post->save($post);
                 $this->di->get('SessionFlash')->success('Post <b>'.$name.'</b> successfully created :)');
                 $this->response->redirect('forum/post/'.$newPost->getId());
@@ -50,9 +52,10 @@ class PostController extends BaseController {
                 $post = new Post();
                 $post->setTitle($oldPost->getTitle());
                 $post->setContent($this->request->getPost('editor1'));
-                $post->setUser(User::find(1));//@AS_TODO: Get this info from session
+                $post->setUser(User::find($this->session->get('user')->getId()));
                 $post->setTopic($oldPost->getTopic());
                 $post->setResponse($oldPost);
+                $post->setViews(0);
                 $post->save($post);
                 $this->response->redirect('forum/post/'.$oldPost->getId());
             } else {

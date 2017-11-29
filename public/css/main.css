@@ -11,6 +11,9 @@
   .post .avatar {
     width: 37px;
     margin-left: 5px; }
+    .post .avatar .img-responsive {
+      width: 64px;
+      height: 64px; }
   .post .icons {
     width: 48px;
     border-top: solid 1px #f1f1f1;

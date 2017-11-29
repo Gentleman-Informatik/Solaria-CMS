@@ -25,6 +25,20 @@ class User extends BaseModel {
     /** @Column(type="string") **/
     protected $password;
 
+    /** @Column(type="string") **/
+    protected $email;
+
+    /** @Column(type="integer") **/
+    protected $isValid;
+
+    /** @Column(type="string") **/
+    protected $banned;
+
+    /** @Column(type="integer") **/
+    protected $registerDate;
+
+    /** @Column(type="integer") **/
+    protected $lastActivityTime;
 
     /**
      * One User has Many Posts.
@@ -43,41 +57,146 @@ class User extends BaseModel {
       $this->userRoles  = new ArrayCollection();
     }
 
-    public function setUsername($username) {
-      $this->username = $username;
+    /**
+     * @return mixed
+     */
+    public function getId() {
+        return $this->id;
     }
 
-    public function setPassword($password) {
-      $this->password = $password;
+    /**
+     * @param mixed $id
+     */
+    public function setId($id) {
+        $this->id = $id;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getSteamId() {
+        return $this->steam_id;
+    }
+
+    /**
+     * @param mixed $steam_id
+     */
     public function setSteamId($steam_id) {
         $this->steam_id = $steam_id;
     }
 
-    public function setSteamAvatar($steam_avatar) {
-        $this->steam_avatar = $steam_avatar;
-    }
-
+    /**
+     * @return mixed
+     */
     public function getSteamAvatar() {
         return $this->steam_avatar;
     }
 
-    public function getPosts() {
-      return $this->posts;
+    /**
+     * @param mixed $steam_avatar
+     */
+    public function setSteamAvatar($steam_avatar) {
+        $this->steam_avatar = $steam_avatar;
     }
 
-    public function getUserRole() {
-        return $this->userRoles;
-    }
-
-    public function getId() {
-      return $this->id;
-    }
-
+    /**
+     * @return mixed
+     */
     public function getUsername() {
         return $this->username;
     }
+
+    /**
+     * @param mixed $username
+     */
+    public function setUsername($username) {
+        $this->username = $username;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPassword() {
+        return $this->password;
+    }
+
+    /**
+     * @param mixed $password
+     */
+    public function setPassword($password) {
+        $this->password = $password;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail() {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email) {
+        $this->email = $email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getisValid() {
+        return $this->isValid;
+    }
+
+    /**
+     * @param mixed $isValid
+     */
+    public function setIsValid($isValid) {
+        $this->isValid = $isValid;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBanned() {
+        return $this->banned;
+    }
+
+    /**
+     * @param mixed $banned
+     */
+    public function setBanned($banned) {
+        $this->banned = $banned;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRegisterDate() {
+        return $this->registerDate;
+    }
+
+    /**
+     * @param mixed $registerDate
+     */
+    public function setRegisterDate($registerDate) {
+        $this->registerDate = $registerDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastActivityTime() {
+        return $this->lastActivityTime;
+    }
+
+    /**
+     * @param mixed $lastActivityTime
+     */
+    public function setLastActivityTime($lastActivityTime) {
+        $this->lastActivityTime = $lastActivityTime;
+    }
+
 
 
 }

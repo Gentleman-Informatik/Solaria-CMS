@@ -18,6 +18,10 @@ $offlineColor: #f27777;
   .avatar {
     width: 37px;
     margin-left: 5px;
+    .img-responsive {
+      width: 64px;
+      height: 64px;
+    }
   }
   .icons {
     width: 48px;
